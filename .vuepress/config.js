@@ -18,7 +18,7 @@ module.exports = {
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
   themeConfig: {
     repo: "geekidea/spring-boot-plus",
-    docsRepo: "springboot-plus/springboot-plus.github.io",
+    docsRepo: "geekidea/spring-boot-plus-doc",
     editLinks: true,
     locales: {
       "/": {
