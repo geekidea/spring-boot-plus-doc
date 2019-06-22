@@ -2,6 +2,7 @@
 home: true
 heroImage: /img/logo.png
 actionText: 快速开始 →
+githubText: GITHUB →
 actionLink: /guide/
 features:
 - title: 快速开发

@@ -13,15 +13,21 @@
         {{ data.tagline || $description || 'Welcome to your VuePress site' }}
       </p>
 
-      <p
-        class="action"
-        v-if="data.actionText && data.actionLink"
-      >
-        <NavLink
-          class="action-button"
-          :item="actionLink"
-        />
+<!--      <p-->
+<!--        class="action"-->
+<!--        v-if="data.actionText && data.actionLink"-->
+<!--      >-->
+<!--        <NavLink-->
+<!--          class="action-button"-->
+<!--          :item="actionLink"-->
+<!--        />-->
+<!--      </p>-->
+
+      <p>
+        <a href="/guide/" class="nav-link action-button">快速开始 →</a>
+        <a href="https://github.com/geekidea/spring-boot-plus" class="nav-link action-button go-github-btn" TARGET="_blank">GITHUB →</a>
       </p>
+
     </div>
 
     <div
@@ -79,15 +85,17 @@ export default {
   margin 0px auto
   .hero
     text-align center
+    .go-github-btn
+
     img
       max-width 100%
       max-height 280px
       display block
-      margin 3rem auto 1.5rem
+      margin 2rem auto 1.5rem
     h1
       font-size 3rem
     h1, .description, .action
-      margin 1.8rem auto
+      margin 1.6rem auto
     .description
       max-width 35rem
       font-size 1.6rem
@@ -160,4 +168,7 @@ export default {
     .feature
       h2
         font-size 1.25rem
+
+
+
 </style>
