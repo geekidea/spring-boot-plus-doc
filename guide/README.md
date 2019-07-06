@@ -12,16 +12,7 @@
 2. 集成mybatis plus快速dao操作
 3. 快速生成后台代码: entity/param/vo/controller/service/mapper/xml
 4. 不同环境打包配置部署
-5. spring boot 公共配置、AOP日志等
-
-                
-- spring boot 2.1.6        
-- mybatis plus             
-- druid                    
-- mysql                    
-- redis                    
-- rabbit/rocket/kafka mq   
-- jwt + security           
+5. spring boot 公共配置、AOP日志等         
 
 ### 项目环境 
 中间件 | 版本 |  备注
