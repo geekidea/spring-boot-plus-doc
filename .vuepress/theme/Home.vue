@@ -174,7 +174,7 @@ export default {
     margin-left: 20px!important;
     border-radius: 60px!important;
     position: relative;
-    padding: 10px 30px 12px 60px !important;
+    padding: 10px 25px 12px 55px !important;
     background-color: #f6f6f6!important;
     color: #4f5959!important;
     border-color: #f6f6f6!important;
