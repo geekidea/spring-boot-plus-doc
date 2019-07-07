@@ -133,18 +133,6 @@ export default {
     nprogress.configure({ showSpinner: false })
 
     this.$router.beforeEach((to, from, next) => {
-      setTimeout(() => {
-        let _hmt = _hmt || [];
-        (() => {
-          document.getElementById('baidu_tj') && document.getElementById('baidu_tj').remove();
-          let hm = document.createElement('script');
-          hm.src = 'https://hm.baidu.com/hm.js?6c9de5245e7fa879b9f240d27d0f017a';
-          hm.id = 'baidu_tj';
-          let s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-      },50);
-
       if (to.path !== from.path && !Vue.component(to.name)) {
         nprogress.start()
       }
@@ -189,6 +177,16 @@ export default {
     }
   }
 }
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6c9de5245e7fa879b9f240d27d0f017a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
