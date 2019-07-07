@@ -78,6 +78,34 @@ export default {
 
   computed: {
     shouldShowNavbar () {
+
+      setTimeout(()=>{
+        console.log("%c                 _                    _                 _                _\n" +
+                "                (_)                  | |               | |              | |\n" +
+                "  ___ _ __  _ __ _ _ __   __ _ ______| |__   ___   ___ | |_ ______ _ __ | |_   _ ___\n" +
+                " / __| '_ \\| '__| | '_ \\ / _` |______| '_ \\ / _ \\ / _ \\| __|______| '_ \\| | | | / __|\n" +
+                " \\__ \\ |_) | |  | | | | | (_| |      | |_) | (_) | (_) | |_       | |_) | | |_| \\__ \\\n" +
+                " |___/ .__/|_|  |_|_| |_|\\__, |      |_.__/ \\___/ \\___/ \\__|      | .__/|_|\\__,_|___/\n" +
+                "     | |                  __/ |                                   | |\n" +
+                "     |_|                 |___/                                    |_|","color:blue");
+        console.log("%cWelcome to spring-boot-plus","color:blue");
+        console.log("%cGITHUB：https://github.com/geekidea/spring-boot-plus","color:blue");
+        console.log("%cGITEE：https://gitee.com/geekidea/spring-boot-plus","color:blue");
+        console.log("%cBlog：https://geekidea.io","color:blue");
+        console.log("%cEmail：geekidea@qq.com","color:blue");
+        var _hmt = _hmt || [];
+        (function() {
+          //每次执行前，先移除上次插入的代码
+          document.getElementById('baidu_tj') && document.getElementById('baidu_tj').remove();
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?6c9de5245e7fa879b9f240d27d0f017a";
+          hm.id = "baidu_tj"
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      },10);
+
+
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
       if (
@@ -177,16 +205,6 @@ export default {
     }
   }
 }
-</script>
-
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?6c9de5245e7fa879b9f240d27d0f017a";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>

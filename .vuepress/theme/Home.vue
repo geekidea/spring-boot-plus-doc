@@ -169,18 +169,25 @@ export default {
   .quick-btn{
     border-radius: 60px!important;
     padding: 10px 30px 10px 30px !important;
+    font-size: 1.05em!important;
+  }
+  .quick-btn:hover{
+    box-shadow: 6px 6px 10px #4498f8;
   }
   .go-github-btn{
     margin-left: 20px!important;
     border-radius: 60px!important;
     position: relative;
-    padding: 10px 25px 12px 55px !important;
+    padding: 10px 25px 10px 55px !important;
     background-color: #f6f6f6!important;
     color: #4f5959!important;
     border-color: #f6f6f6!important;
     font-size: 1.05em!important;
     font-weight: 600!important;
     letter-spacing: 0.1em!important;
+  }
+  .go-github-btn:hover{
+    box-shadow: 6px 6px 6px #dddddd;
   }
   .go-github-btn svg{
     position: absolute;
