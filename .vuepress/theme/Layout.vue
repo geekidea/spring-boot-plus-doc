@@ -93,16 +93,6 @@ export default {
         console.log("%cGITEE：https://gitee.com/geekidea/spring-boot-plus","color:blue");
         console.log("%cBlog：https://geekidea.io","color:blue");
         console.log("%cEmail：geekidea@qq.com","color:blue");
-        var _hmt = _hmt || [];
-        (function() {
-          //每次执行前，先移除上次插入的代码
-          document.getElementById('baidu_tj') && document.getElementById('baidu_tj').remove();
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?6c9de5245e7fa879b9f240d27d0f017a";
-          hm.id = "baidu_tj"
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
       },10);
 
 
