@@ -183,7 +183,7 @@ export default {
     padding: 10px 16px 10px 50px !important;
     background-color: #f5f5f5!important;
     color: #4f5959!important;
-    border:2px solid #f4f4f4!important;
+    border-color:#f4f4f4!important;
     font-size: 1.05em!important;
     font-weight: 600!important;
     letter-spacing: 0.1em!important;
