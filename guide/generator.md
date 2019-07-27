@@ -1,6 +1,4 @@
-## spring-boot-plus Generator
-
-### 演示
+# Generator 代码生成
 
 ### 代码生成方法
 

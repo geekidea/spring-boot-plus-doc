@@ -69,14 +69,12 @@ function genGuideSidebar() {
     {
       title: "核心功能" ,
       collapsable: false,
-      children: ["generator","core"]
+      children: ["generator"]
     },
     {
       title: "技术栈集成",
       collapsable: false,
-      children: [
-        ""
-      ]
+      children: ["stack"]
     },
     {
       title: "FAQ",
