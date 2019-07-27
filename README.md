@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /img/logo.png
+heroImage: https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/logo.png
 actionText: 快速开始 →
 githubText: GITHUB →
 actionLink: /guide/

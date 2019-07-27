@@ -2,7 +2,10 @@
 
 ### 代码生成内容
 > spring-boot-plus在mybatis-plus基础上，新增param/vo等模板
-> 拓展controller/service/mapper/xml方法
+
+> 拓展controller/service/mapper/xml，生成通用CRUD/分页方法
+
+> 代码生成模板：spring-boot-plus/src/test/resources/templates
 
 ## Purpose
 > 数据库新建表，即可生成后台CRUD/分页基础代码，还有swagger！
@@ -48,7 +51,7 @@ CREATE TABLE `sys_log`  (
 ```text
 spring-boot-plus/src/test/java/io/geekidea/springbootplus/test/CodeGenerator.java
 ```
-![代码生成器位置](https://raw.githubusercontent.com/geekidea/spring-boot-plus-doc/master/.vuepress/public/img/generator-config-location.png)
+![代码生成器位置](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/generator-config-location.png)
 
 
 > 2.1 修改数据库连接配置
@@ -166,22 +169,22 @@ SpringBootPlusApplication.java
 
 > 3.5 访问项目
 - 自动生成swagger CRUD、分页接口文档
-![swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-swagger.png?raw=true)
+![swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-swagger.png)
 
 1. add 添加接口swagger
-![add 添加接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-add-swagger.png?raw=true)
+![add 添加接口swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-add-swagger.png)
 
 2. delete 删除接口swagger
-![delete 删除接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-delete-swagger.png?raw=true)
+![delete 删除接口swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-delete-swagger.png)
 
 3. getPageList 分页接口swagger
-![getPageList 分页接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-getPageList-swagger.png?raw=true)
+![getPageList 分页接口swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-getPageList-swagger.png)
 
 4. info 详情接口swagger
-![info 详情接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-info-swagger.png?raw=true)
+![info 详情接口swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-info-swagger.png)
 
 5. update 修改接口swagger
-![update 修改接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-update-swagger.png?raw=true)
+![update 修改接口swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-update-swagger.png)
  
 
 #### 官网地址：[springboot.plus](http://springboot.plus "springboot.plus")
