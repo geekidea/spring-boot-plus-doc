@@ -1,6 +1,31 @@
 # Generator 代码生成
 
-### 代码生成方法
+### 代码生成内容
+> spring-boot-plus在mybatis-plus基础上，新增param/vo等模板
+> 拓展controller/service/mapper/xml方法
+
+## Purpose
+> 数据库新建表，即可生成后台CRUD/分页基础代码，还有swagger！
+
+##### 官网地址：[springboot.plus](http://springboot.plus "springboot.plus")
+##### GITHUB：[https://github.com/geekidea/spring-boot-plus](https://github.com/geekidea/spring-boot-plus "spring-boot-plus github")
+##### GITEE：[https://gitee.com/geekidea/spring-boot-plus](https://gitee.com/geekidea/spring-boot-plus "spring-boot-plus gitee")
+
+```text
+                 _                    _                 _                _
+                (_)                  | |               | |              | |
+  ___ _ __  _ __ _ _ __   __ _ ______| |__   ___   ___ | |_ ______ _ __ | |_   _ ___
+ / __| '_ \| '__| | '_ \ / _` |______| '_ \ / _ \ / _ \| __|______| '_ \| | | | / __|
+ \__ \ |_) | |  | | | | | (_| |      | |_) | (_) | (_) | |_       | |_) | | |_| \__ \
+ |___/ .__/|_|  |_|_| |_|\__, |      |_.__/ \___/ \___/ \__|      | .__/|_|\__,_|___/
+     | |                  __/ |                                   | |
+     |_|                 |___/                                    |_|
+
+      :: Spring Boot ::             (v2.1.6.RELEASE)
+      :: Spring Boot Plus ::        (v1.0.0.RELEASE)
+```
+
+### 代码生成步骤
 
 1. 创建数据库表，例如：sys_log
 > 注意：记得加上表注释，字段列注释，方便生成类注释、swagger注释
@@ -158,3 +183,6 @@ SpringBootPlusApplication.java
 5. update 修改接口swagger
 ![update 修改接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-update-swagger.png?raw=true)
  
+
+#### 官网地址：[springboot.plus](http://springboot.plus "springboot.plus")
+
