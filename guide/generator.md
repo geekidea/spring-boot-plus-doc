@@ -25,6 +25,8 @@ CREATE TABLE `sys_log`  (
 ```text
 spring-boot-plus/src/test/java/io/geekidea/springbootplus/test/CodeGenerator.java
 ```
+![代码生成器位置](https://raw.githubusercontent.com/geekidea/spring-boot-plus-doc/master/.vuepress/public/img/generator-config-location.png)
+
 
 > 2.1 修改数据库连接配置
 ```java
@@ -140,3 +142,21 @@ SpringBootPlusApplication.java
 ```
 
 > 3.5 访问项目
+- 自动生成swagger CRUD、分页接口文档
+![swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-swagger.png?raw=true)
+
+1. add 添加接口swagger
+![add 添加接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-add-swagger.png?raw=true)
+
+2. delete 删除接口swagger
+![delete 删除接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-delete-swagger.png?raw=true)
+
+3. getPageList 分页接口swagger
+![getPageList 分页接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-getPageList-swagger.png?raw=true)
+
+4. info 详情接口swagger
+![info 详情接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-info-swagger.png?raw=true)
+
+5. update 修改接口swagger
+![update 修改接口swagger](https://github.com/geekidea/spring-boot-plus-doc/blob/master/.vuepress/public/img/sys-log-update-swagger.png?raw=true)
+ 
