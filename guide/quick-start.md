@@ -70,17 +70,20 @@ INSERT INTO `sys_log` VALUES (1068528405778444290, NULL, NULL, NULL, '2018-11-30
 INSERT INTO `sys_log` VALUES (1068528405778444291, NULL, NULL, NULL, '2018-11-30 23:33:21');
 
 ```
-> ip表只有表结构，数据在,第一次使用时，此步骤不是必须的！
+> ip表只有表结构，第一次使用项目时，可以不用导入ip表数据！
 
 [https://github.com/geekidea/spring-boot-plus-doc/blob/master/db/ip_data.sql.zip](https://github.com/geekidea/spring-boot-plus-doc/blob/master/db/ip_data.sql.zip)
 
 #### 4. 启动redis
 
-#### 5.启动
+#### 5. 启动项目
 > 项目启动入口类
 ```text
 SpringBootPlusApplication.java
 ```
 
-#### 6.访问
+#### 6. 访问
 > [http://localhost:8888/swagger-ui.html](http://localhost:8888/swagger-ui.html)
+
+#### 7. swagger界面
+![swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-swagger.png)
