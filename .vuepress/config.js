@@ -64,7 +64,7 @@ function genGuideSidebar() {
     {
       title: "快速入门",
       collapsable: false,
-      children: ["", "quick-start","tree","project-config","config","changelog","pack"]
+      children: ["", "quick-start","tree","project-config","config","changelog","pack","deploy"]
     },
     {
       title: "核心功能" ,

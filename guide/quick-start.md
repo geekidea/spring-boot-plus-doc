@@ -1,23 +1,22 @@
 # 快速开始 Quick Start
 
-#### 1. clone项目到本地
+## 1. clone项目到本地
 
 ```shell script
 git clone git@github.com:geekidea/spring-boot-plus.git
 ```
 Or
-
 ```shell script
 git clone https://github.com/geekidea/spring-boot-plus.git
 ```
 
-#### 2. maven构建
+## 2. maven构建
 > 默认使用local环境,对应配置文件：application-local.yml
 ```shell script
 mvn clean package
 ```
 
-#### 3. 新建数据库
+## 3. 新建数据库
 > 数据库MySQL
 
 > 默认数据库名称为：spring_boot_plus
@@ -74,16 +73,16 @@ INSERT INTO `sys_log` VALUES (1068528405778444291, NULL, NULL, NULL, '2018-11-30
 
 [https://github.com/geekidea/spring-boot-plus-doc/blob/master/db/ip_data.sql.zip](https://github.com/geekidea/spring-boot-plus-doc/blob/master/db/ip_data.sql.zip)
 
-#### 4. 启动redis
+## 4. 启动redis
 
-#### 5. 启动项目
+## 5. 启动项目
 > 项目启动入口类
 ```text
 SpringBootPlusApplication.java
 ```
 
-#### 6. 访问
+## 6. 访问
 > [http://localhost:8888/swagger-ui.html](http://localhost:8888/swagger-ui.html)
 
-#### 7. swagger界面
+## 7. swagger界面
 ![swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-swagger.png)

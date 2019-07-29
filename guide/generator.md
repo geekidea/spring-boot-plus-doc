@@ -29,7 +29,7 @@ spring-boot-plus在mybatis-plus基础上，新增param/vo等模板
       :: Spring Boot Plus ::        (v1.0.0.RELEASE)
 ```
 
-### 代码生成步骤
+## 代码生成步骤
 
 1. 创建数据库表，例如：sys_log
 > 注意：记得加上表注释，字段列注释，方便生成类注释、swagger注释
@@ -143,7 +143,7 @@ Process finished with exit code 0
 │              SysLogQueryVo.java       响应结果类，用于自定义查询响应结果等
 ```
 
-> 3.4 启动项目
+## 启动项目
 ```java
 SpringBootPlusApplication.java
 ```
@@ -168,7 +168,7 @@ SpringBootPlusApplication.java
     \/_____/\/__/\/__/\/_/ \/_/   \/__/     \/_____/\/___/  \/____/\/____/\/____/\/___/  \/___/ 
 ```
 
-> 3.5 访问项目
+## 访问项目
 
 > [http://localhost:8888/swagger-ui.html](http://localhost:8888/swagger-ui.html)
 
@@ -195,6 +195,3 @@ SpringBootPlusApplication.java
 5. update 修改接口swagger
 ![update 修改接口swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-update-swagger.png)
  
-
-#### 官网地址：[springboot.plus](http://springboot.plus "springboot.plus")
-

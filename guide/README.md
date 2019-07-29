@@ -1,7 +1,8 @@
 ## 项目介绍 Introduction
 
-### spring-boot-plus是一套集成spring boot常用开发组件的后台快速开发框架
-
+::: tip spring-boot-plus
+### 一套集成spring boot常用开发组件的后台快速开发脚手架
+:::
 ## Purpose
 > 每个人都可以独立、快速、高效地开发项目！
 
@@ -24,14 +25,14 @@
 10. 使用assembly maven插件进行不同环境打包部署,包含启动、重启命令，配置文件提取到外部config目录
 :::
 
-### 项目环境 
+## 项目环境 
 中间件 | 版本 |  备注
 -|-|-
 JDK | 1.8+ | JDK1.8及以上 |
 MySQL | 5.7+ | 5.7及以上 |
 Redis | 3.2+ |  |
 
-### 技术选型 
+## 技术选型 
 技术 | 版本 |  备注
 -|-|-
 Spring Boot | 2.1.6.RELEASE | 最新发布稳定版 |
