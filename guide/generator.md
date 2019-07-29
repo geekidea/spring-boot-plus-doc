@@ -168,6 +168,14 @@ SpringBootPlusApplication.java
 ```
 
 > 3.5 访问项目
+
+> [http://localhost:8888/swagger-ui.html](http://localhost:8888/swagger-ui.html)
+
+> 或者访问本地ip
+
+> [http://192.168.xxx.xxx:8888/swagger-ui.html](http://192.168.xxx.xxx:8888/swagger-ui.html)
+
+
 - 自动生成swagger CRUD、分页接口文档
 ![swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-swagger.png)
 
