@@ -1,11 +1,12 @@
-# Generator 代码生成
+# 代码生成 Generator
 
-### 代码生成内容
-> spring-boot-plus在mybatis-plus基础上，新增param/vo等模板
+::: tip 代码生成内容
+spring-boot-plus在mybatis-plus基础上，新增param/vo等模板
 
-> 拓展controller/service/mapper/xml，生成通用CRUD/分页方法
+拓展controller/service/mapper/xml，生成通用CRUD/分页方法
 
-> 代码生成模板：spring-boot-plus/src/test/resources/templates
+代码生成模板：spring-boot-plus/src/test/resources/templates
+:::
 
 ## Purpose
 > 数据库新建表，即可生成后台CRUD/分页基础代码，还有swagger！
