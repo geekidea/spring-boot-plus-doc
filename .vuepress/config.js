@@ -74,7 +74,7 @@ function genGuideSidebar() {
     {
       title: "技术栈集成",
       collapsable: false,
-      children: ["stack"]
+      children: ["springbootadmin"]
     },
     {
       title: "FAQ",

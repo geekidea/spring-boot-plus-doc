@@ -12,6 +12,8 @@
 #### GITHUB：[https://github.com/geekidea/spring-boot-plus](https://github.com/geekidea/spring-boot-plus "spring-boot-plus github")
 #### GITEE：[https://gitee.com/geekidea/spring-boot-plus](https://gitee.com/geekidea/spring-boot-plus "spring-boot-plus gitee")
 
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=30c15b161620d2d5d48ec9851d781a0d162a162ebcd19e2ee9c8054548e06404"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="spring-boot-plus技术交流" title="spring-boot-plus技术交流"></a>
+ 
 ::: tip 主要特性
 1. 集成spring boot 常用开发组件集、公共配置、AOP日志等
 2. 集成mybatis plus快速dao操作
@@ -51,5 +53,6 @@ hibernate-validator | 6.0.17.Final | 后台参数校验注解 |
 jwt | 0.9.1 | json web token |
 hutool-all | 4.5.10 | 常用工具集 |
 
-#### 官网地址：[springboot.plus](http://springboot.plus "springboot.plus")
+## spring-boot-plus技术交流群
+![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/spring-boot-plus-qq-group.png)
 

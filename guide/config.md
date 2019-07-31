@@ -1,8 +1,10 @@
 # 详细配置
 
+[[toc]]
+
 ## 公共配置 application.yml
 
-#### tomcat相关配置
+### Tomcat相关配置
 ```yaml
 server:
   servlet:
@@ -17,7 +19,7 @@ server:
 - min-spare-threads：tomcat初始化线程数量
 - uri-encoding：tomcat编码
 
-#### 应用程序相关配置
+### 应用程序相关配置
 ```yaml
 spring:
   application:
@@ -30,7 +32,7 @@ spring:
 - banner.charset：banner字符集
 - banner.location：banner文件路径
 
-#### 数据库驱动及DRUID数据源配置
+### 数据库驱动及DRUID数据源配置
 ```yaml
 datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -72,9 +74,9 @@ datasource:
 - url-pattern：druid登录路径
 - login-username：druid登录账号
 - login-password：druid登录密码
-- druid更多说明和配置：[https://github.com/alibaba/druid](https://github.com/alibaba/druid)
+- druid更多说明和配置： 👉 [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
 
-#### http编码
+### HTTP编码
 ```yaml
 http:
     encoding:
@@ -83,20 +85,20 @@ http:
       force: true
 ```
 
-#### jackson日期和时区配置
+### Jackson日期和时区配置
 ```yaml
 jackson:
     date-format: yyy-MM-dd HH:mm:ss
     time-zone: GMT+8
 ```
 
-#### 当前项目环境配置
+### 当前项目环境配置
 ```yaml
 profiles:
     active: '@profileActive@'
 ```
 
-#### redis配置
+### Redis配置
 ```yaml
 redis:
     jedis:
@@ -120,7 +122,7 @@ redis:
 - max-idle: 最小存活数
 - timeout：超时时间
 
-#### Rabbit MQ配置
+### Rabbit MQ配置
 ```yaml
   rabbitmq:
     host: 39.106.37.56
@@ -150,7 +152,7 @@ redis:
 - exchange：交换机名称
 - routing-key：路由key名称
 
-#### Kafka MQ配置
+### Kafka MQ配置
 ```yaml
 kafka:
     bootstrap-servers: 203.104.37.38:9092
@@ -168,7 +170,7 @@ kafka:
 - consumer：消费者配置
 - default-topic：默认主题配置
 
-#### JWT配置
+### JWT配置
 ```yaml
 spring-boot-plus:
   jwt:
@@ -185,8 +187,9 @@ spring-boot-plus:
 - subject：主题
 - audience：应用场景
 - expire-minutes：过期分钟数
+- 更多详情：👉 [https://jwt.io/](https://jwt.io/)
 
-#### 拦截器路径排除配置
+### 拦截器路径排除配置
 ```yaml
 interceptor:
     jwt:
@@ -205,7 +208,7 @@ interceptor:
 - permission.exclude.path：权限拦截器排除路径
 - token-timeout.exclude.path：token超时拦截器排除路径
 
-#### mybatis-plus配置
+### mybatis-plus配置
 ```yaml
 mybatis-plus:
   check-config-location: true
@@ -223,19 +226,9 @@ mybatis-plus:
 - map-underscore-to-camel-case：下换线自动转驼峰
 - id-type：主键生成策略,id_worker使用雪花算法，生成全局唯一有序ID
 - mapper-locations：mapper xml 路径
-- 更多mybatis-plus配置，请查看：[https://mybatis.plus/config/](https://mybatis.plus/config/)
+- 更多mybatis-plus配置，请查看 👉 [https://mybatis.plus/config/](https://mybatis.plus/config/)
 
-#### spring boot端点设置
-```yaml
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-```
-- spring boot健康检查、监控等，可配合spring boot admin使用
-
-#### swagger2配置
+### Swagger2配置
 ```yaml
 swagger:
   base:
@@ -254,34 +247,59 @@ swagger:
 - name：开发者名称
 - title：标题
 - description：描述
+- 更多详情： 👉 [https://swagger.io/](https://swagger.io/)
 
-#### 项目自定义属性配置，结合spring boot admin使用
+### Spring Boot Admin 后台监控配置
+```yaml
+spring:
+  boot:
+    admin:
+      client:
+        url: 'http://localhost:8888'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+```
+- url：spring boot admin访问路径，与当前项目访问路径一致
+- endpoints：spring boot健康检查、监控等，可配合spring boot admin使用
+- 更多详情： 👉 [http://codecentric.github.io/spring-boot-admin/2.1.6/](http://codecentric.github.io/spring-boot-admin/2.1.6/)
+
+### 项目自定义属性配置，结合spring boot admin使用
 ```yaml
 info:
+  project-groupId: '@project.groupId@'
   project-artifactId: '@project.artifactId@'
+  project-name: '@project.name@'
+  project-finalName: '@project.build.finalName@'
   project-author: ${swagger.contact.name}
   project-description: '@project.description@'
-  project-finalName: '@project.build.finalName@'
-  project-groupId: '@project.groupId@'
-  project-name: '@project.name@'
   project-sourceEncoding: '@project.build.sourceEncoding@'
-  project-spring-boot-version: '@project-parent.version@'
+  project-spring-boot-version: '@spring-boot.version@'
+  project-mybatis-plus-version: '@mybatis-plus-boot-starter.version@'
   project-version: '@project.version@'
 ```
+- project-groupId：项目maven组ID
 - project-artifactId：项目骨架ID
+- project-name：项目名称
+- project-finalName：项目打包后的名称
 - project-author：项目作者
 - project-description：项目描述
-- project-finalName：项目打包后的名称
-- project-groupId：项目maven组ID
-- project-name：项目名称
 - project-sourceEncoding：项目源代码编码
 - project-spring-boot-version：spring boot版本
+- project-mybatis-plus-version：mybatis-plus版本
 - project-version：项目版本
+
 
 ## 本地环境 application-local.yml
 > 本地环境相关配置，如果公共配置中有相关配置，则会覆盖
 
-#### 登录token超时配置
+### 登录token超时配置
 ```yaml
 springbootplus:
   isEnableAnsi: true
@@ -294,7 +312,7 @@ springbootplus:
 - isEnableAnsi：在控制台日志是否带有颜色，本地开发环境可以设置为true，服务器环境上设置为false
 - minute：token超时分钟数
 
-#### 端口相关配置
+### 端口相关配置
 ```yaml
 server:
   port: 8888
@@ -304,7 +322,7 @@ server:
 - port：本地环境端口
 - context-path：本地环境项目路径
 
-#### 数据库相关配置
+### 数据库相关配置
 ```yaml
 spring:
   datasource:
@@ -316,7 +334,7 @@ spring:
 - username：账号
 - password：密码
 
-#### redis相关配置
+### redis相关配置
 ```yaml
 redis:
     database: 0

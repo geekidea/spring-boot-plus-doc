@@ -1,5 +1,8 @@
 # 更新日志
 
+## [1.1.0-RELEASE] 2019.08.31
+- 集成spring boot admin 后台监控功能
+
 ## [V1.0.0-RELEASE] 2019.07.10
 - 集成spring boot 2.1.6.RELEASE
 - 集成mybatis-plus 3.1.1
