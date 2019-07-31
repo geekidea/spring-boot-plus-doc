@@ -11,6 +11,7 @@
 - test：测试目录
 - test/resources：代码生成模板目录
 :::
+
 ```text
 ├─bin
 ├─logs
