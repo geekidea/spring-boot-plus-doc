@@ -1,6 +1,8 @@
-# 详细配置
+---
+sidebarDepth: 3
+---
 
-[[toc]]
+# 详细配置
 
 ## 公共配置 application.yml
 
