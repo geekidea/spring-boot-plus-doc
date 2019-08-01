@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # FAQ
 
 [[toc]]
@@ -33,8 +37,6 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'spr
 - 例如：application-local.yml中的spring.datasource.url中更改数据库名称
 :::
 
-
-
 ### Redis错误
 ```text
 org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
@@ -50,9 +52,63 @@ Unable to connect to localhost:6379
 - 请根据环境情况，进行配置
 :::
 
+### Spring Boot Admin不能访问问题
+::: danger 你的主机中的软件中止了一个已建立的连接
+```text
+2019-07-31 16:33:37.205 ERROR 6696 --- [ctor-http-nio-2] o.s.w.s.adapter.HttpWebHandlerAdapter    : [f4aeb71d] Error [java.io.IOException: 你的主机中的软件中止了一个已建立的连接。] for HTTP GET "/applications", but ServerHttpResponse already committed (200 OK)
+```
+:::
+
+::: tip 解决
+> 8888端口：与当前项目端口一致
+- yaml配置
+```yaml
+spring:
+  boot:
+    admin:
+      client:
+        url: 'http://localhost:8888'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+```
+
+- properties配置
+```properties
+spring.boot.admin.client.url=http://localhost:8888
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=ALWAYS
+```
+:::
+
 ## 代码生成器问题
 
 ## Swagger问题
+
+### 不能访问swagger页面
+::: danger
+```json
+{"code":404,"data":null,"msg":"你请求的路径不存在","time":"2019-08-01 12:56:27"}
+```
+:::
+
+::: tip 解决
+- 检查WebMvcConfig.java类中是否排除了swagger静态资源
+```java
+@Override
+public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("swagger-ui.html")
+            .addResourceLocations("classpath:/META-INF/resources/");
+    registry.addResourceHandler("/webjars/**")
+            .addResourceLocations("classpath:/META-INF/resources/webjars/");
+}
+```
+:::
 
 ## 运维部署问题
 
