@@ -6,6 +6,20 @@ sidebarDepth: 3
 
 [[toc]]
 
+## 编译错误问题
+
+### log日志编译错误
+::: danger log报错
+- 编译提示log.info等日志错误
+:::
+
+::: tip 解决
+- 检查是否按照lombok插件
+- [idea按照lombok](https://www.baidu.com/s?ie=utf-8&wd=idea%E5%AE%89%E8%A3%85lombok)
+- [eclipse按照lombok](https://www.baidu.com/s?ie=utf-8&wd=eclipse%E5%AE%89%E8%A3%85lombok)
+:::
+
+
 ## 运行错误问题
 
 ### MySQL错误

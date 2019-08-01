@@ -75,14 +75,19 @@ INSERT INTO `sys_log` VALUES (1068528405778444291, NULL, NULL, NULL, '2018-11-30
 
 ## 4. 启动redis
 
-## 5. 启动项目
+## 5. 检查是否按照lombok插件
+> 如遇到log报错，则需要按照lombok插件
+- [idea按照lombok](https://www.baidu.com/s?ie=utf-8&wd=idea%E5%AE%89%E8%A3%85lombok)
+- [eclipse按照lombok](https://www.baidu.com/s?ie=utf-8&wd=eclipse%E5%AE%89%E8%A3%85lombok)
+
+## 6. 启动项目
 > 项目启动入口类
 ```text
 SpringBootPlusApplication.java
 ```
 
-## 6. 访问
+## 7. 访问
 > [http://localhost:8888/swagger-ui.html](http://localhost:8888/swagger-ui.html)
 
-## 7. swagger界面
+## 8. swagger界面
 ![swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-swagger.png)
