@@ -29,11 +29,11 @@ module.exports = {
         nav: [
           {
             text: "指南",
-            link: "/guide/"
+            link: "/guide/quick-start"
           },
           {
             text: "配置",
-            link: "/config/"
+            link: "/guide/config"
           },
           {
             text: "生态",
@@ -47,7 +47,7 @@ module.exports = {
           {
             text: "更新日志",
             link:
-              ""
+              "/guide/changelog"
           }
         ],
         sidebar: {
