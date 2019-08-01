@@ -110,7 +110,3 @@ management:
 ![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-http-traces.png)
 
 
-## 主要页面介绍
-
-
-
