@@ -330,7 +330,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/spring_boot_plus?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: rootroot
+    password: root
 ```
 - url：数据库连接信息
 - username：账号
