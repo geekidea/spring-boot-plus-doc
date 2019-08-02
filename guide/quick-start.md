@@ -23,7 +23,9 @@ mvn clean package
 
 > 导入表结构和数据：
 
-    spring-boot-plus\docs\spring_boot_plus.sql
+```text
+spring-boot-plus\docs\spring_boot_plus.sql
+```
     
 ```sql
 -- ----------------------------
@@ -61,15 +63,8 @@ INSERT INTO `sys_log` VALUES (1060438746056376321, 0, 'A', 100000, '2018-11-08 1
 INSERT INTO `sys_log` VALUES (1060438788502732802, 0, 'B', 100000, '2018-11-08 15:42:08');
 INSERT INTO `sys_log` VALUES (1060438799600861185, 0, 'C', 100000, '2018-11-08 15:42:10');
 INSERT INTO `sys_log` VALUES (1060438809495224322, 0, 'D', 100000, '2018-11-08 15:42:13');
-INSERT INTO `sys_log` VALUES (1060438823319650306, 0, 'E', 100000, '2018-11-08 15:42:16');
-INSERT INTO `sys_log` VALUES (1060438833750884353, 0, 'F', 100000, '2018-11-08 15:42:18');
-INSERT INTO `sys_log` VALUES (1060439062743166977, 0, '1111111111', 100000, '2018-11-08 15:43:13');
-INSERT INTO `sys_log` VALUES (1060439085228830721, 1, 'test redis lock ffbb79f6-9efe-4608-b204-fde5279b107f', 100000, '2018-11-16 16:46:35');
-INSERT INTO `sys_log` VALUES (1068528405778444290, NULL, NULL, NULL, '2018-11-30 23:33:21');
-INSERT INTO `sys_log` VALUES (1068528405778444291, NULL, NULL, NULL, '2018-11-30 23:33:21');
-
 ```
-> ip表只有表结构，第一次使用项目时，可以不用导入ip表数据！
+> ip表这里只有表结构，第一次使用项目时，可以不用导入ip表数据！
 
 [https://github.com/geekidea/spring-boot-plus-doc/blob/master/db/ip_data.sql.zip](https://github.com/geekidea/spring-boot-plus-doc/blob/master/db/ip_data.sql.zip)
 
@@ -77,8 +72,8 @@ INSERT INTO `sys_log` VALUES (1068528405778444291, NULL, NULL, NULL, '2018-11-30
 
 ## 5. 检查是否安装lombok插件
 > 如遇到log报错，则需要安装lombok插件
-- [idea安装lombok](https://www.baidu.com/s?ie=utf-8&wd=idea%E5%AE%89%E8%A3%85lombok)
-- [eclipse安装lombok](https://www.baidu.com/s?ie=utf-8&wd=eclipse%E5%AE%89%E8%A3%85lombok)
+
+### 👉 [Eclipse中使用spring-boot-plus项目详细步骤](https://springboot.plus/guide/eclipse-spring-boot-plus.html)
 
 ## 6. 启动项目
 > 项目启动入口类
@@ -86,8 +81,17 @@ INSERT INTO `sys_log` VALUES (1068528405778444291, NULL, NULL, NULL, '2018-11-30
 SpringBootPlusApplication.java
 ```
 
-## 7. 访问
-> [http://localhost:8888/swagger-ui.html](http://localhost:8888/swagger-ui.html)
+## 7. 访问Spring Boot Admin
+> 👉 [http://localhost:8888](http://localhost:8888/docs)
 
-## 8. swagger界面
+- spring-boot-plus主界面，Spring Boot Admin
+
+![Spring Boot Admin](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-home.png)
+
+## 8. 访问Swagger
+> 👉 [http://localhost:8888/swagger-ui.html](http://localhost:8888/swagger-ui.html)
+
+- Swagger界面
+
 ![swagger](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/sys-log-swagger.png)
+ 

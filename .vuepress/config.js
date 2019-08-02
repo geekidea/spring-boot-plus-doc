@@ -12,7 +12,7 @@ module.exports = {
     "/": {
       lang: "zh-CN",
       title: "spring-boot-plus",
-      description: "spring boot快速开发脚手架"
+      description: "每个人都可以独立、快速、高效地开发项目！"
     }
   },
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
@@ -64,7 +64,7 @@ function genGuideSidebar() {
     {
       title: "快速入门",
       collapsable: false,
-      children: ["", "quick-start","tree","project-config","config","pack","deploy","changelog"]
+      children: ["","quick-start","eclipse-spring-boot-plus","project-config","config","tree","pack","deploy","changelog"]
     },
     {
       title: "核心功能" ,
