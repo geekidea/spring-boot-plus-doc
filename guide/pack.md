@@ -8,7 +8,11 @@
 
 > 打包命令
 ```shell script
-mvn clean package
+mvn clean package -Plocal
+```
+
+```bash
+cd target
 ```
 
 - 打包后的项目压缩包

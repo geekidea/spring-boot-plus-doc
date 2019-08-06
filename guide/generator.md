@@ -72,13 +72,19 @@ private static final String AUTHOR = "geekidea";
 // 生成的表名称
 private static final String TABLE_NAME = "sys_log";
 // 主键数据库列名称
-private static final String PK_ID_COLUMN_NAME = "id";
+private static final String PK_ID_COLUMN_NAME = "log_id";
+// 代码生成策略 true：All/false:SIMPLE
+private static final boolean GENERATOR_STRATEGY = true;
+// 分页列表查询是否排序 true：有排序参数/false：无
+private static final boolean PAGE_LIST_ORDER = true;
 // ############################ 配置部分 end ############################
 ```
-- MODULE_NAME 模块名称，在目前项目上以单独的文件夹形式体现
-- AUTHOR 作者名称，在类的注释上体现
-- TABLE_NAME 表名称，当前需要生成的表名称，关联实体类等
-- PK_ID_COLUMN_NAME 主键列名称，默认是id，如果是其它名称，可在这里配置
+- MODULE_NAME：模块名称，在目前项目上以单独的文件夹形式体现
+- AUTHOR：作者名称，在类的注释上体现
+- TABLE_NAME：表名称，当前需要生成的表名称，关联实体类等
+- PK_ID_COLUMN_NAME：主键列名称，默认是id，如果是其它名称，可在这里配置
+- GENERATOR_STRATEGY：代码生成策略 true：All/false:SIMPLE
+- PAGE_LIST_ORDER：分页列表查询是否排序 true：有排序参数/false：无
 
 3. 运行CodeGenerator.java
 > 3.1 控制台输出生成日志

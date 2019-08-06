@@ -67,46 +67,46 @@ management:
 
 > Spring Boot Admin主界面
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-home.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-home.png)
 
 > Spring Boot Admin Client展示面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-wallboard.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-wallboard.png)
 
 > Spring Boot Admin 实例面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-instance.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-instance.png)
 
 > Spring Boot Admin Monitor
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-monitor.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-monitor.png)
 
 > Spring Boot Admin 环境面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-environment.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-environment.png)
 
 > Spring Boot Admin Beans面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-beans.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-beans.png)
 
 > Spring Boot Admin 项目属性配置面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-config-properties.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-config-properties.png)
 
 > Spring Boot Admin Loggers
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-loggers.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-loggers.png)
 
 > Spring Boot Admin 线程面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-threads.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-threads.png)
 
 > Spring Boot Admin Controller映射面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-web-mappings.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-web-mappings.png)
 
 > Spring Boot Admin Http调用链面板
 
-![](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/springbootadmin/springbootadmin-http-traces.png)
+![](https://spring-boot-plus.gitee.io/docs/springbootadmin/springbootadmin-http-traces.png)
 
 

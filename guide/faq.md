@@ -225,6 +225,89 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
 ```
 :::
 
+### LocalDateTime日期类使用问题
+::: danger 
+Caused by: java.sql.SQLFeatureNotSupportedException
+:::
+```text
+Caused by: java.sql.SQLFeatureNotSupportedException
+	at com.alibaba.druid.pool.DruidPooledResultSet.getObject(DruidPooledResultSet.java:1771)
+	at org.apache.ibatis.type.LocalDateTimeTypeHandler.getNullableResult(LocalDateTimeTypeHandler.java:38)
+	at org.apache.ibatis.type.LocalDateTimeTypeHandler.getNullableResult(LocalDateTimeTypeHandler.java:28)
+	at org.apache.ibatis.type.BaseTypeHandler.getResult(BaseTypeHandler.java:81)
+```
+
+```text
+org.springframework.dao.InvalidDataAccessApiUsageException: Error attempting to get column 'create_time' from result set.  Cause: java.sql.SQLFeatureNotSupportedException
+; null; nested exception is java.sql.SQLFeatureNotSupportedException
+
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:96)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy134.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:89)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:62)
+	at com.sun.proxy.$Proxy139.getSysLogById(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+```
+
+::: tip
+- 问题原因是JDK8的LocalDate、LocalTime、LocalDateTime日期类型，druid数据源尚不支持
+- [druid issues](https://github.com/alibaba/druid/issues/3230)
+> 目前解决办法
+
+- 1. 更换数据源
+- 2. 在mybatis-plus生成代码中配置，将日期类型生成为`DateType.ONLY_DATE`，数据库中的日期类型生成为Date
+```java
+// 全局配置
+GlobalConfig gc = new GlobalConfig();
+gc.setDateType(DateType.ONLY_DATE); // 设置日期类型为Date
+```
+[mybatis-plus dateType配置](https://mybatis.plus/config/generator-config.html#datetype)
+:::
+
+
 ## 运维部署问题
+
+### 项目打包后，依赖包丢失
+
+::: danger
+- spring-boot-plus.jar只有100多kb
+- 此时依赖包未打包到主jar中，检查pom.xml配置
+::: 
+
+> spring-boot-plus项目中，pom.xml没有直接继承spring-boot-starter-parent
+
+>而是导入spring-boot-dependencies依赖
+
+> 这样做的好处是，项目可以继承自己的父pom 
+
+::: tip 使用这种方式，进行打包，默认情况下，会导致依赖包丢失，需进行以下配置
+```xml
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <mainClass>io.geekidea.springbootplus.SpringBootPlusApplication</mainClass>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+- mainClass：项目启动类
+- repackage：重新打包
+:::
+
 
 ## Other问题
