@@ -6,6 +6,8 @@ sidebarDepth: 3
 
 ## 公共配置 application.yml
 
+### 👉 [SpringBoot官方完整配置](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/common-application-properties.html)
+
 ### Tomcat相关配置
 ```yaml
 server:

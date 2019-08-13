@@ -15,8 +15,8 @@ sidebarDepth: 3
 
 ::: tip 解决
 - 检查是否安装lombok插件
-- [idea安装lombok](https://www.baidu.com/s?ie=utf-8&wd=idea%E5%AE%89%E8%A3%85lombok)
-- [eclipse安装lombok](https://www.baidu.com/s?ie=utf-8&wd=eclipse%E5%AE%89%E8%A3%85lombok)
+- [idea安装lombok](https://springboot.plus/guide/idea-spring-boot-plus.html)
+- [eclipse安装lombok](https://springboot.plus/guide/eclipse-spring-boot-plus.html)
 :::
 
 
