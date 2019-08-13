@@ -64,7 +64,7 @@ function genGuideSidebar() {
     {
       title: "快速入门",
       collapsable: false,
-      children: ["","quick-start","eclipse-spring-boot-plus","project-config","config","tree","pack","deploy","changelog"]
+      children: ["","quick-start","idea-spring-boot-plus","eclipse-spring-boot-plus","project-config","config","tree","pack","deploy","changelog"]
     },
     {
       title: "核心功能" ,

@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # IDEA导入spring-boot-plus
 
 ## 安装lombok插件
