@@ -13,7 +13,7 @@ spring boot 配置分为公共配置：application.yml文件
 ```text
 application-dev.yml     开发环境
 application-local.yml   本地环境
-application-prod.yml    生成环境
+application-prod.yml    生产环境
 application-test.yml    测试环境
 application-uat.yml     用户验收测试
 ```
