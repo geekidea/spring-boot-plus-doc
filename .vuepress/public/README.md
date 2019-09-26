@@ -1,3 +1,3 @@
-# spring-boot-plus-doc
+# spring-boot-plus website
 
 ### [https://springboot.plus](https://springboot.plus)
