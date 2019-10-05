@@ -6,7 +6,7 @@ videoText: WHY SPRINGBOOT.PLUS?
 videoUrl: https://space.bilibili.com/472594640/channel/detail?cid=88171
 playerUrl: //player.bilibili.com/player.html?aid=67401204&cid=116864676&page=1
 actionText: 快速开始
-actionUrl: /guide/
+actionUrl: /guide/quick-start.html
 githubText: GITHUB
 githubUrl: https://github.com/geekidea/spring-boot-plus
 
