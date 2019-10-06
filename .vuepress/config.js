@@ -118,7 +118,6 @@ function genGuideSidebar(isZh) {
                 "quick-start",
                 "project-config",
                 "tree",
-                "pack",
                 "deploy",
             ]
         },
@@ -130,6 +129,7 @@ function genGuideSidebar(isZh) {
                 "springbootadmin",
                 "centos-deploy",
                 "upload-download-resource",
+                "shiro+jwt",
             ]
         },
         {

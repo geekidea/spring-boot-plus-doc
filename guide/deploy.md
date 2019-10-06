@@ -10,26 +10,63 @@ meta:
 
 # 运维部署
 
+::: tip 项目打包
+- spring-boot-plus项目使用maven assembly插件进行打包
+- 根据不同环境进行打包部署
+- 包含启动、重启命令，配置文件提取到外部config目录
+:::
+
 ## 线上部署
 
-> 打包环境为prod
+> - 指定打包环境
+> - `local`:本地，`dev`:开发环境，`test`:测试环境，`uat`:用户验收测试，`prod`:生产环境
 ```bash
 mvn clean package -Pprod
 ```
 
-> 打包后的目录
+### 启动方式一：直接启动jar
 ```bash
-cd target/spring-boot-plus-1.2.0.RELEASE-prod
+nohup java -jar target/spring-boot-plus.jar &
+```
+
+### 启动方式二：使用启动命令和外部配置 <Badge text="推荐" type="tip"/>
+```bash
+cd target
+tar -zxvf spring-boot-plus-server-assembly.tar.gz
+cd spring-boot-plus-server
+```
+- 打包后的项目目录结构
+```text
+└── spring-boot-plus-server
+    ├── LICENSE
+    ├── bin
+    │   ├── restart.sh
+    │   ├── shutdown.sh
+    │   ├── startup.bat
+    │   └── startup.sh
+    ├── config
+    │   ├── application-prod.yml
+    │   ├── application.yml
+    │   ├── banner.txt
+    │   ├── logback.xml
+    │   └── mime-type.properties
+    ├── lib
+    │   └── spring-boot-plus.jar
+    └── logs
+        ├── back
+        │   └── spring-boot-plus-back.log
+        ├── spring-boot-plus-startup.log
+        └── spring-boot-plus.log
 ```
 
 ### 设置线上数据库、Redis等敏感信息
 ```bash
-vim spring-boot-plus/config/application-prod.yml
+vim config/application-prod.yml
 ```
 
 ### 启动服务
 ```bash
-sh spring-boot-plus/bin/startup.sh
+sh bin/startup.sh
 ```
 
 ### 启动日志

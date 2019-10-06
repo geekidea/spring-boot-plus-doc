@@ -23,75 +23,90 @@ meta:
 :::
 
 ```text
-├─bin
-├─logs
-│  └─back
-├─main
-│  ├─assembly
-│  ├─java
-│  │  └─io
-│  │      └─geekidea
-│  │          └─springbootplus
-│  │              ├─common
-│  │              │  ├─aop
-│  │              │  ├─api
-│  │              │  ├─constant
-│  │              │  ├─constraints
-│  │              │  ├─entity
-│  │              │  ├─enums
-│  │              │  ├─exception
-│  │              │  ├─service
-│  │              │  │  └─impl
-│  │              │  └─web
-│  │              │      ├─controller
-│  │              │      ├─filter
-│  │              │      ├─interceptor
-│  │              │      ├─param
-│  │              │      └─vo
-│  │              ├─config
-│  │              │  ├─converter
-│  │              │  ├─json
-│  │              │  │  ├─fastjson
-│  │              │  │  └─jackson
-│  │              │  │      ├─deserializer
-│  │              │  │      └─serializer
-│  │              │  └─mq
-│  │              │      ├─kafka
-│  │              │      └─rabbit
-│  │              ├─example
-│  │              │  ├─mq
-│  │              │  │  ├─kafka
-│  │              │  │  └─rabbit
-│  │              │  └─redislock
-│  │              ├─security
-│  │              │  ├─config
-│  │              │  ├─controller
-│  │              │  ├─interceptor
-│  │              │  ├─param
-│  │              │  ├─service
-│  │              │  │  └─impl
-│  │              │  ├─util
-│  │              │  └─vo
-│  │              ├─system
-│  │              │  ├─entity
-│  │              │  ├─mapper
-│  │              │  ├─service
-│  │              │  │  └─impl
-│  │              │  └─web
-│  │              │      ├─controller
-│  │              │      ├─param
-│  │              │      └─vo
-│  │              └─util
-│  └─resources
-│      ├─config
-│      └─mapper
-│          └─system
-└─test
-    ├─java
-    │  └─io
-    │      └─geekidea
-    │          └─springbootplus
-    │              └─test
-    └─resources
-        └─templates
+├── deploy
+├── docs
+│   ├── bin
+│   │   └── install
+│   ├── config
+│   ├── db
+│   └── img
+├── logs
+└── src
+    ├── bin
+    ├── logs
+    │   └── back
+    ├── main
+    │   ├── assembly
+    │   ├── java
+    │   │   └── io
+    │   │       └── geekidea
+    │   │           └── springbootplus
+    │   │               ├── common
+    │   │               │   ├── aop
+    │   │               │   ├── api
+    │   │               │   ├── constant
+    │   │               │   ├── constraints
+    │   │               │   ├── entity
+    │   │               │   ├── enums
+    │   │               │   ├── exception
+    │   │               │   ├── service
+    │   │               │   │   └── impl
+    │   │               │   └── web
+    │   │               │       ├── controller
+    │   │               │       ├── filter
+    │   │               │       ├── interceptor
+    │   │               │       ├── param
+    │   │               │       └── vo
+    │   │               ├── config
+    │   │               │   ├── converter
+    │   │               │   └── json
+    │   │               │       ├── fastjson
+    │   │               │       └── jackson
+    │   │               │           ├── deserializer
+    │   │               │           └── serializer
+    │   │               ├── core
+    │   │               ├── resource
+    │   │               │   └── web
+    │   │               │       ├── controller
+    │   │               │       └── interceptor
+    │   │               ├── shiro
+    │   │               │   ├── cache
+    │   │               │   │   └── impl
+    │   │               │   ├── config
+    │   │               │   ├── controller
+    │   │               │   ├── convert
+    │   │               │   ├── exception
+    │   │               │   ├── jwt
+    │   │               │   ├── param
+    │   │               │   ├── service
+    │   │               │   │   └── impl
+    │   │               │   ├── util
+    │   │               │   └── vo
+    │   │               ├── system
+    │   │               │   ├── convert
+    │   │               │   ├── entity
+    │   │               │   ├── mapper
+    │   │               │   ├── service
+    │   │               │   │   └── impl
+    │   │               │   └── web
+    │   │               │       ├── controller
+    │   │               │       ├── param
+    │   │               │       └── vo
+    │   │               └── util
+    │   └── resources
+    │       ├── config
+    │       ├── mapper
+    │       │   └── system
+    │       ├── static
+    │       └── templates
+    └── test
+        ├── java
+        │   └── io
+        │       └── geekidea
+        │           └── springbootplus
+        │               └── test
+        └── resources
+            └── templates
 ```
+
+### 项目包和类文档：[http://geekidea.io/spring-boot-plus-apidocs/](http://geekidea.io/spring-boot-plus-apidocs/)
