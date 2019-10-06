@@ -56,7 +56,7 @@ module.exports = {
                     },
                     {
                         text: "接口文档",
-                        link: "http://47.105.159.10:8888/docs/"
+                        link: "http://47.105.159.10:8888/docs"
                     }
                 ],
                 sidebar: {
