@@ -129,7 +129,7 @@ function genGuideSidebar(isZh) {
                 "springbootadmin",
                 "centos-deploy",
                 "upload-download-resource",
-                "shiro+jwt",
+                "shiro-jwt",
             ]
         },
         {
