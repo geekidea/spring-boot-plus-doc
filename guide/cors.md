@@ -63,12 +63,17 @@ spring-boot-plus:
     # 允许访问的源
     allowed-origins: '*'
     # 允许访问的请求头
-    allowed-headers: content-type,token
+    allowed-headers: x-requested-with,content-type,token
     # 是否允许发送cookie
     allow-credentials: true
     # 允许访问的请求方式
     allowed-methods: OPTION,GET,POST
     # 允许响应的头
-    exposed-headers: content-type,token
+    exposed-headers: token
+    # 该响应的有效时间默认为30分钟，在有效时间内，浏览器无须为同一请求再次发起预检请求
+    max-age: 1800
   ############################ CORS end ##############################
 ```
+
+### 参考
+- [HTTP访问控制（CORS）](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
