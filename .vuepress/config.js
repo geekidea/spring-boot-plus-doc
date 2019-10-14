@@ -8,8 +8,8 @@ module.exports = {
         ['link', { rel: 'icon', href: '/favicon.ico' }],
         ['script', {}, 'var _hmt = _hmt || []; (function() {var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?f5cf3abbd62a6b246284fc0259a2a17d"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();'],
         ['script', {}, 'console.log("%c                 _                    _                 _                _\\n                (_)                  | |               | |              | |\\n  ___ _ __  _ __ _ _ __   __ _ ______| |__   ___   ___ | |_ ______ _ __ | |_   _ ___\\n / __| \'_ \\\\| \'__| | \'_ \\\\ / _` |______| \'_ \\\\ / _ \\\\ / _ \\\\| __|______| \'_ \\\\| | | | / __|\\n \\\\__ \\\\ |_) | |  | | | | | (_| |      | |_) | (_) | (_) | |_       | |_) | | |_| \\\\__ \\\\\\n |___/ .__/|_|  |_|_| |_|\\\\__, |      |_.__/ \\\\___/ \\\\___/ \\\\__|      | .__/|_|\\\\__,_|___/\\n     | |                  __/ |                                   | |\\n     |_|                 |___/                                    |_|","color:blue");'],
-        ['script', {}, 'console.log("%c      :: Spring Boot ::             (v2.1.8.RELEASE)","color:blue");console.log("%c      :: Spring Boot Plus ::        (v1.2.3.RELEASE)","color:blue");console.log("%c      :: spring-boot-plus ::        https://springboot.plus","color:blue");'],
-        ['script', {}, 'console.log("%cWelcome to spring-boot-plus","color:blue");console.log("%cGITHUB：https://github.com/geekidea/spring-boot-plus","color:blue");console.log("%cGITEE：https://gitee.com/geekidea/spring-boot-plus","color:blue");console.log("%cBlog：https://geekidea.io","color:blue");console.log("%cEmail：springbootplus@aliyun.com","color:blue");'],
+        ['script', {}, 'console.log("%c      :: Spring Boot ::             (v2.1.9.RELEASE)","color:blue");console.log("%c      :: Spring Boot Plus ::        (v1.3.1.RELEASE)","color:blue");console.log("%c      :: spring-boot-plus ::        https://springboot.plus","color:blue");'],
+        ['script', {}, 'console.log("%cWelcome to spring-boot-plus","color:blue");console.log("%cGITHUB：https://github.com/geekidea/spring-boot-plus","color:blue");console.log("%cGITEE：https://gitee.com/geekidea/spring-boot-plus","color:blue");console.log("%cBlog：https://geekidea.io","color:blue");console.log("%cEmail：springbootplus@aliyun.com","color:blue");console.log("%cWebsite：https://springboot.plus","color:blue");'],
     ],
     locales: {
         '/': {
@@ -130,6 +130,8 @@ function genGuideSidebar(isZh) {
                 "centos-deploy",
                 "upload-download-resource",
                 "shiro-jwt",
+                "cors",
+                "xss",
             ]
         },
         {

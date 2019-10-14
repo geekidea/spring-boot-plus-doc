@@ -64,12 +64,19 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJodHRwczovL3NwcmluZ2Jvb3QucGx1cyI
 ```java
 @Slf4j
 @Configuration
+@EnableConfigurationProperties({
+        ShiroProperties.class
+})
 public class ShiroConfig {
 
     /**
      * JWT过滤器名称
      */
     private static final String JWT_FILTER_NAME = "jwtFilter";
+    /**
+     * 请求路径过滤器名称
+     */
+    private static final String REQUEST_PATH_FILTER_NAME = "path";
     /**
      * Shiro过滤器名称
      */
@@ -94,17 +101,6 @@ public class ShiroConfig {
         return jwtRealm;
     }
 
-    /**
-     * 禁用session
-     *
-     * @return
-     */
-    @Bean
-    public DefaultSessionManager sessionManager() {
-        DefaultSessionManager manager = new DefaultSessionManager();
-        manager.setSessionValidationSchedulerEnabled(false);
-        return manager;
-    }
 
     @Bean
     public SessionStorageEvaluator sessionStorageEvaluator() {
@@ -130,7 +126,6 @@ public class ShiroConfig {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(jwtRealm(loginRedisService));
         securityManager.setSubjectDAO(subjectDAO());
-        securityManager.setSessionManager(sessionManager());
         SecurityUtils.setSecurityManager(securityManager);
         return securityManager;
     }
@@ -148,41 +143,57 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
                                                          LoginService loginService,
                                                          LoginRedisService loginRedisService,
+                                                         SpringBootPlusFilterProperties filterProperties,
                                                          ShiroProperties shiroProperties,
                                                          JwtProperties jwtProperties) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        Map<String, Filter> filterMap = new HashedMap();
-        filterMap.put(JWT_FILTER_NAME, new JwtFilter(loginService, loginRedisService, jwtProperties));
+        Map<String, Filter> filterMap = getFilterMap(loginService, loginRedisService, filterProperties, jwtProperties);
         shiroFilterFactoryBean.setFilters(filterMap);
-        Map<String, String> filterChainMap = shiroFilterChainDefinition(shiroProperties).getFilterChainMap();
+        Map<String, String> filterChainMap = getFilterChainDefinitionMap(shiroProperties);
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
         return shiroFilterFactoryBean;
     }
+
+
+    /**
+     * 获取filter map
+     *
+     * @return
+     */
+    private Map<String, Filter> getFilterMap(LoginService loginService,
+                                             LoginRedisService loginRedisService,
+                                             SpringBootPlusFilterProperties filterProperties,
+                                             JwtProperties jwtProperties) {
+        Map<String, Filter> filterMap = new LinkedHashMap();
+        filterMap.put(REQUEST_PATH_FILTER_NAME, new RequestPathFilter(filterProperties.getRequestPath()));
+        filterMap.put(JWT_FILTER_NAME, new JwtFilter(loginService, loginRedisService, jwtProperties));
+        return filterMap;
+    }
+
 
     /**
      * Shiro路径权限配置
      *
      * @return
      */
-    @Bean
-    public ShiroFilterChainDefinition shiroFilterChainDefinition(ShiroProperties shiroProperties) {
-        DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
+    private Map<String, String> getFilterChainDefinitionMap(ShiroProperties shiroProperties) {
+        Map<String, String> filterChainDefinitionMap = new LinkedHashMap();
         // 获取ini格式配置
         String definitions = shiroProperties.getFilterChainDefinitions();
         if (StringUtils.isNotBlank(definitions)) {
             Map<String, String> section = IniUtil.parseIni(definitions);
             log.debug("definitions:{}", JSON.toJSONString(section));
             for (Map.Entry<String, String> entry : section.entrySet()) {
-                chainDefinition.addPathDefinition(entry.getKey(), entry.getValue());
+                filterChainDefinitionMap.put(entry.getKey(), entry.getValue());
             }
         }
 
         // 获取自定义权限路径配置集合
-        List<ShiroPermissionConfig> permissionConfigs = shiroProperties.getPermissionConfig();
+        List<ShiroPermissionProperties> permissionConfigs = shiroProperties.getPermission();
         log.debug("permissionConfigs:{}", JSON.toJSONString(permissionConfigs));
         if (CollectionUtils.isNotEmpty(permissionConfigs)) {
-            for (ShiroPermissionConfig permissionConfig : permissionConfigs) {
+            for (ShiroPermissionProperties permissionConfig : permissionConfigs) {
                 String url = permissionConfig.getUrl();
                 String[] urls = permissionConfig.getUrls();
                 String permission = permissionConfig.getPermission();
@@ -194,24 +205,53 @@ public class ShiroConfig {
                 }
 
                 if (StringUtils.isNotBlank(url)) {
-                    chainDefinition.addPathDefinition(url, permission);
+                    filterChainDefinitionMap.put(url, permission);
                 }
                 if (ArrayUtils.isNotEmpty(urls)) {
                     for (String string : urls) {
-                        chainDefinition.addPathDefinition(string, permission);
+                        filterChainDefinitionMap.put(string, permission);
                     }
                 }
             }
         }
         // 最后一个设置为JWTFilter
-        chainDefinition.addPathDefinition("/**", JWT_FILTER_NAME);
+        filterChainDefinitionMap.put("/**", JWT_FILTER_NAME);
+        log.debug("filterChainMap:{}", JSON.toJSONString(filterChainDefinitionMap));
 
-        Map<String, String> filterChainMap = chainDefinition.getFilterChainMap();
-        log.debug("filterChainMap:{}", JSON.toJSONString(filterChainMap));
-
-        return chainDefinition;
+        // 添加默认的filter
+        Map<String, String> newFilterChainDefinitionMap = addDefaultFilterDefinition(filterChainDefinitionMap);
+        return newFilterChainDefinitionMap;
     }
 
+    /**
+     * 添加默认的filter权限过滤
+     *
+     * @param filterChainDefinitionMap
+     * @return
+     */
+    private Map<String, String> addDefaultFilterDefinition(Map<String, String> filterChainDefinitionMap) {
+        if (MapUtils.isEmpty(filterChainDefinitionMap)) {
+            return filterChainDefinitionMap;
+        }
+        final Map<String, String> map = new LinkedHashMap();
+        for (Map.Entry<String, String> entry : filterChainDefinitionMap.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            String definition;
+            if (value.contains(REQUEST_PATH_FILTER_NAME)) {
+                definition = value;
+            } else {
+                String[] strings = value.split(",");
+                List<String> list = new ArrayList<>();
+                list.addAll(Arrays.asList(strings));
+                // 添加默认filter过滤
+                list.add(REQUEST_PATH_FILTER_NAME);
+                definition = String.join(",", list);
+            }
+            map.put(key, definition);
+        }
+        return map;
+    }
 
     /**
      * ShiroFilter配置
@@ -258,6 +298,7 @@ public class ShiroConfig {
     @Bean
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
         DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
+        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
         return defaultAdvisorAutoProxyCreator;
     }
 
@@ -269,6 +310,7 @@ public class ShiroConfig {
     }
 
 }
+
 ```
 
 ### JWT过滤器配置
@@ -408,6 +450,7 @@ public class JwtFilter extends AuthenticatingFilter {
         return false;
     }
 }
+
 ```
 
 ### JWT Realm配置
@@ -477,6 +520,7 @@ public class JwtRealm extends AuthorizingRealm {
     }
 
 }
+
 ```
 
 ### 更多配置:[https://github.com/geekidea/spring-boot-plus](https://github.com/geekidea/spring-boot-plus/tree/master/src/main/java/io/geekidea/springbootplus/shiro)
@@ -486,15 +530,19 @@ public class JwtRealm extends AuthorizingRealm {
 ```yaml
 ############################## spring-boot-plus start ##############################
 spring-boot-plus:
-  ######################## Spring Shiro start ########################
+######################## Spring Shiro start ########################
   shiro:
     # shiro ini 多行字符串配置
     filter-chain-definitions: |
       /=anon
       /static/**=anon
       /templates/**=anon
+      /druid/**=anon
+      /hello/world=anon
+      /ip/**=anon
+      /sysLog/**=anon
     # 权限配置
-    permission-config:
+    permission:
         # 排除登陆登出相关
       - urls: /login,/logout
         permission: anon
@@ -502,7 +550,7 @@ spring-boot-plus:
       - urls: /static/**,/templates/**
         permission: anon
         # 排除Swagger
-      - urls: /docs,/swagger-ui.html, /webjars/springfox-swagger-ui/**,/swagger-resources/**,/v2/api-docs
+      - urls: /docs,/swagger-ui.html,/webjars/springfox-swagger-ui/**,/swagger-resources/**,/v2/api-docs
         permission: anon
         # 排除SpringBootAdmin
       - urls: /,/favicon.ico,/actuator/**,/instances/**,/assets/**,/sba-settings.js,/applications/**
@@ -514,9 +562,13 @@ spring-boot-plus:
 
   ############################ JWT start #############################
   jwt:
+    # token请求头名称
     token-name: token
+    # jwt密钥
     secret: 666666
+    # 发行人
     issuer: spring-boot-plus
+    # 观众
     audience: web
     # 默认过期时间1小时，单位：秒
     expire-second: 3600
@@ -580,3 +632,4 @@ spring-boot-plus:
 
 > spring-boot-plus
 - [https://github.com/geekidea/spring-boot-plus](https://github.com/geekidea/spring-boot-plus/tree/master/src/main/java/io/geekidea/springbootplus/shiro)
+- [https://springboot.plus/guide/shiro-jwt.html](https://springboot.plus/guide/shiro-jwt.html)
