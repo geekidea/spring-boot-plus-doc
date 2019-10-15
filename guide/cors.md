@@ -20,7 +20,7 @@ meta:
 ### CorsFilter Bean配置
 > 使用 `Spring` 提供的 `CorsFilter` 过滤器实现跨域配置
 
-- `io.geekidea.springbootplus.core.config.SpringBootPlusConfig`
+- `io.geekidea.springbootplus.core.config.SpringBootPlusCorsConfig`
 ```java
 /**
  * CORS跨域设置
@@ -29,6 +29,7 @@ meta:
  */
 @Bean
 public FilterRegistrationBean corsFilter(SpringBootPlusCorsProperties corsProperties) {
+    log.debug("corsProperties:{}", corsProperties);
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     CorsConfiguration corsConfiguration = new CorsConfiguration();
     // 跨域配置
@@ -37,8 +38,9 @@ public FilterRegistrationBean corsFilter(SpringBootPlusCorsProperties corsProper
     corsConfiguration.setAllowedMethods(corsProperties.getAllowedMethods());
     corsConfiguration.setAllowCredentials(corsProperties.isAllowCredentials());
     corsConfiguration.setExposedHeaders(corsProperties.getExposedHeaders());
-    source.registerCorsConfiguration(corsProperties.getPath(), corsConfiguration);
+    corsConfiguration.setMaxAge(corsConfiguration.getMaxAge());
 
+    source.registerCorsConfiguration(corsProperties.getPath(), corsConfiguration);
     FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
     bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
     bean.setEnabled(corsProperties.isEnable());
