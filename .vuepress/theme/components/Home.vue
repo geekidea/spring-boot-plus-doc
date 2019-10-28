@@ -59,8 +59,10 @@
          title="阿里云服务器拼团-86元/年" target="_blank">
       </a>
     </div>
-      <p>
-          【2019双11】ALL IN CLoud 低至1折 <a href="http://uee.me/c3pUp">http://uee.me/c3pUp</a> 阿里云双11新客上云仅86元/年 答题领亿元补贴
+      <p style="text-align: center">
+          【2019双11】ALL IN CLoud 低至1折<br/>
+          阿里云双11新客上云仅86元/年 答题领亿元补贴<br/>
+          <a href="http://uee.me/c3pUp">http://uee.me/c3pUp</a>
       </p>
 
     <Content class="theme-default-content custom"/>
@@ -382,7 +384,7 @@
 
   .ad-aliyun-ecs{
       height: 200px;
-      background-image: url(https://raw.githubusercontent.com/geekidea/spring-boot-plus-doc/master/.vuepress/public/img/640-200.jpg);
+      background-image: url(https://raw.githubusercontent.com/geekidea/spring-boot-plus-doc/master/.vuepress/public/img/960-300.jpg);
       width: 100%;
       position: relative;
       background-repeat: no-repeat;
