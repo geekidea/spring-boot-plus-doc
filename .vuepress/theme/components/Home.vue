@@ -60,9 +60,12 @@
       </a>
     </div>
       <p style="text-align: center">
+          <a href="https://www.aliyun.com/1111/2019/group-buying-share?ptCode=2605233D3B74078F3E793525082F0291647C88CF896EF535&userCode=liubqy0t&share_source=copy_link"
+             title="阿里云服务器拼团-86元/年" target="_blank">
           【2019双11】ALL IN CLoud 低至1折<br/>
           阿里云双11新客上云仅86元/年 答题领亿元补贴<br/>
-          <a href="http://uee.me/c3pUp">http://uee.me/c3pUp</a>
+          </a>
+          <a href="http://uee.me/c3pUp" title="阿里云服务器拼团-86元/年" target="_blank">http://uee.me/c3pUp</a>
       </p>
 
     <Content class="theme-default-content custom"/>
