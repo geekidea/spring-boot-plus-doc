@@ -378,7 +378,7 @@
 
   .ad-aliyun-ecs{
       height: 200px;
-      background-image: url(https://springboot.plus/img/ad/1920-508.jpg);
+      background-image: url(https://springboot.plus/img/1920-508.jpg);
       width: 100%;
       position: relative;
       background-repeat: no-repeat;
