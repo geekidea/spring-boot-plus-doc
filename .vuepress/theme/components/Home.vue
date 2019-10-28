@@ -382,7 +382,7 @@
 
   .ad-aliyun-ecs{
       height: 200px;
-      background-image: url(https://raw.githubusercontent.com/geekidea/spring-boot-plus-doc/master/.vuepress/public/img/1920-508.jpg);
+      background-image: url(https://raw.githubusercontent.com/geekidea/spring-boot-plus-doc/master/.vuepress/public/img/640-200.jpg);
       width: 100%;
       position: relative;
       background-repeat: no-repeat;
