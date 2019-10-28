@@ -55,9 +55,13 @@
     </div>
 
     <div>
-      <a class="ad-aliyun-ecs" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=2605233D3B74078F3E793525082F029189B9F59A2D8E8A59&userCode=liubqy0t&activityId=3&share_source=copy_link" title="阿里云服务器拼团-99元一年" target="_blank">
+      <a class="ad-aliyun-ecs" href="https://www.aliyun.com/1111/2019/group-buying-share?ptCode=2605233D3B74078F3E793525082F0291647C88CF896EF535&userCode=liubqy0t&share_source=copy_link"
+         title="阿里云服务器拼团-86元/年" target="_blank">
       </a>
     </div>
+      <p>
+          【2019双11】ALL IN CLoud 低至1折 <a href="http://uee.me/c3pUp">http://uee.me/c3pUp</a> 阿里云双11新客上云仅86元/年 答题领亿元补贴
+      </p>
 
     <Content class="theme-default-content custom"/>
 
@@ -378,7 +382,7 @@
 
   .ad-aliyun-ecs{
       height: 200px;
-      background-image: url(https://springboot.plus/img/1920-508.jpg);
+      background-image: url(https://raw.githubusercontent.com/geekidea/spring-boot-plus-doc/master/.vuepress/public/img/1920-508.jpg);
       width: 100%;
       position: relative;
       background-repeat: no-repeat;
