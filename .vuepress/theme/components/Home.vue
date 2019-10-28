@@ -54,6 +54,10 @@
       </div>
     </div>
 
+    <div>
+      <a class="ad-aliyun-ecs" href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=2605233D3B74078F3E793525082F029189B9F59A2D8E8A59&userCode=liubqy0t&activityId=3&share_source=copy_link" title="阿里云服务器拼团-99元一年" target="_blank">
+      </a>
+    </div>
 
     <Content class="theme-default-content custom"/>
 
@@ -371,4 +375,18 @@
   .features{
     margin-top: 20px !important;
   }
+
+  .ad-aliyun-ecs{
+      height: 200px;
+      background-image: url(https://springboot.plus/img/ad/1920-508.jpg);
+      width: 100%;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center 0;
+      background-size: auto 100%;
+      white-space: nowrap;
+      margin-bottom: 20px;
+      display: block;
+  }
+
 </style>
