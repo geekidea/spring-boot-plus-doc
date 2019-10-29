@@ -18,6 +18,8 @@
 
 cd ~/github/spring-boot-plus/target/apidocs/
 
+pwd
+
 echo "# spring-boot-plus Java Apidocs" > README.md
 echo "## [http://geekidea.io/spring-boot-plus-apidocs](http://geekidea.io/spring-boot-plus-apidocs)" >> README.md
 echo "## [https://springboot.plus](https://springboot.plus)" >> README.md
