@@ -8,7 +8,7 @@ meta:
     content: spring-boot-plus是易于使用，快速，高效，功能丰富，开源的spring boot 脚手架。前后端分离,专注于后端服务！ 每个人都可以独立、快速、高效地开发项目！Everyone can develop projects independently, quickly and efficiently！
 ---
 
-# 用户角色权限
+# RBAC用户角色权限
 > 用户角色权限部门管理核心接口介绍 
 
 ## Shiro权限配置
@@ -36,7 +36,7 @@ spring-boot-plus:
 `enable-verify-code` 设置为 `true` 启用验证码验证
 
 #### 两种方式获取验证码
-> - 验证码后台保存在Redis中，过期时间默认为5分钟
+> 验证码后台保存在Redis中，过期时间默认为5分钟
 
 ##### 方式一：
 > 输出图片流到浏览器，验证码token输出到响应头

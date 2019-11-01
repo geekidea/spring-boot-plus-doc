@@ -1,5 +1,5 @@
 ---
-title: SpringBoot+Shiro+JWT权限管理
+title: Shiro+JWT权限管理
 meta:
   - name: keywords
     content: springboot,springbootplus,shiro,jwt,shiro+jwt
