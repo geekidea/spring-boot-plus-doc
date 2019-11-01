@@ -55,7 +55,7 @@ module.exports = {
                         link: "http://47.105.159.10:8888/"
                     },
                     {
-                        text: "接口文档",
+                        text: "Swagger文档",
                         link: "http://47.105.159.10:8888/docs"
                     }
                 ],
