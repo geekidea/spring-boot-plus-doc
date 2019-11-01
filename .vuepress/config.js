@@ -130,6 +130,7 @@ function genGuideSidebar(isZh) {
                 "centos-deploy",
                 "upload-download-resource",
                 "shiro-jwt",
+                "rbac",
                 "cors",
                 "xss",
             ]

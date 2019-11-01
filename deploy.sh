@@ -17,4 +17,8 @@ git remote add origin git@github.com:springboot-plus/springboot-plus.github.io.g
 
 git push origin master -f
 
+rm -rf .git
+
+echo "deploy website success"
+
 cd ..

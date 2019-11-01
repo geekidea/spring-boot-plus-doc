@@ -34,4 +34,6 @@ git push origin master -f
 
 echo "deploy apidocs success"
 
+rm -rf .git
+
 cd ..

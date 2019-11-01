@@ -7,7 +7,7 @@ meta:
     content: spring-boot-plus集成Shiro+JWT，执行身份验证、授权、密码和会话管理
 ---
 
-# SpringBoot+Shiro+JWT权限管理
+# Shiro+JWT权限管理
 
 ## Shiro
 ::: tip Shiro
@@ -122,7 +122,7 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public DefaultWebSecurityManager securityManager(LoginRedisService loginRedisService) {
+    public SecurityManager securityManager(LoginRedisService loginRedisService) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(jwtRealm(loginRedisService));
         securityManager.setSubjectDAO(subjectDAO());
@@ -214,8 +214,14 @@ public class ShiroConfig {
                 }
             }
         }
-        // 最后一个设置为JWTFilter
-        filterChainDefinitionMap.put("/**", JWT_FILTER_NAME);
+
+        // 如果启用shiro，则设置最后一个设置为JWTFilter，否则全部路径放行
+        if (shiroProperties.isEnable()) {
+            filterChainDefinitionMap.put("/**", JWT_FILTER_NAME);
+        } else {
+            filterChainDefinitionMap.put("/**", "anon");
+        }
+
         log.debug("filterChainMap:{}", JSON.toJSONString(filterChainDefinitionMap));
 
         // 添加默认的filter
@@ -243,9 +249,9 @@ public class ShiroConfig {
             } else {
                 String[] strings = value.split(",");
                 List<String> list = new ArrayList<>();
-                list.addAll(Arrays.asList(strings));
                 // 添加默认filter过滤
                 list.add(REQUEST_PATH_FILTER_NAME);
+                list.addAll(Arrays.asList(strings));
                 definition = String.join(",", list);
             }
             map.put(key, definition);
@@ -288,18 +294,6 @@ public class ShiroConfig {
     @Bean
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
-    }
-
-    /**
-     * depends-on lifecycleBeanPostProcessor
-     *
-     * @return
-     */
-    @Bean
-    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
-        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
-        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
-        return defaultAdvisorAutoProxyCreator;
     }
 
     @Bean
@@ -479,16 +473,16 @@ public class JwtRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         log.debug("doGetAuthorizationInfo principalCollection...");
         // 设置角色/权限信息
-        String token = principalCollection.toString();
+        JwtToken jwtToken = (JwtToken) principalCollection.getPrimaryPrincipal();
         // 获取username
-        String username = JwtUtil.getUsername(token);
+        String username = jwtToken.getUsername();
         // 获取登陆用户角色权限信息
         LoginSysUserRedisVo loginSysUserRedisVo = loginRedisService.getLoginSysUserRedisVo(username);
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         // 设置角色
-        authorizationInfo.setRoles(loginSysUserRedisVo.getRoles());
+        authorizationInfo.setRoles(SetUtils.hashSet(loginSysUserRedisVo.getRoleCode()));
         // 设置权限
-        authorizationInfo.setStringPermissions(loginSysUserRedisVo.getPermissions());
+        authorizationInfo.setStringPermissions(loginSysUserRedisVo.getPermissionCodes());
         return authorizationInfo;
     }
 
@@ -528,10 +522,11 @@ public class JwtRealm extends AuthorizingRealm {
 
 ### application.yml配置
 ```yaml
-############################## spring-boot-plus start ##############################
-spring-boot-plus:
-######################## Spring Shiro start ########################
+
+  ######################## Spring Shiro start ########################
   shiro:
+    # 是否启用
+    enable: true
     # shiro ini 多行字符串配置
     filter-chain-definitions: |
       /=anon
@@ -539,8 +534,10 @@ spring-boot-plus:
       /templates/**=anon
       /druid/**=anon
       /hello/world=anon
-      /ip/**=anon
       /sysLog/**=anon
+      /verificationCode/**=anon
+      /resource/**=anon
+      /fooBar/**=anon
     # 权限配置
     permission:
         # 排除登陆登出相关
@@ -585,6 +582,7 @@ spring-boot-plus:
   ############################ JWT end ###############################
 
 ############################### spring-boot-plus end ###############################
+
 ```
 
 ### Redis存储信息
