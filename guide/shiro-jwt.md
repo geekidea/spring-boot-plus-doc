@@ -46,8 +46,8 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJodHRwczovL3NwcmluZ2Jvb3QucGx1cyI
 ```xml
 <dependency>
     <groupId>org.apache.shiro</groupId>
-    <artifactId>shiro-spring-boot-starter</artifactId>
-    <version>1.4.1</version>
+    <artifactId>shiro-spring</artifactId>
+    <version>${shiro.version}</version>
 </dependency>
 ```
 
