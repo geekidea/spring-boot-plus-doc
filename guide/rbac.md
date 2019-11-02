@@ -17,7 +17,7 @@ meta:
 ## 数据库模型图
 ![spring-boot-plus数据库模型图](https://spring-boot-plus.gitee.io/img/spring-boot-plus-db-diagram.png)
 
-- 👉 [spring-boot-plusL初始化SQL下载](https://raw.githubusercontent.com/geekidea/spring-boot-plus/master/docs/db/mysql_spring_boot_plus.sql)
+- 👉 [spring-boot-plus初始化SQL下载](https://raw.githubusercontent.com/geekidea/spring-boot-plus/master/docs/db/mysql_spring_boot_plus.sql)
 
 ## 获取验证码
 > - 可配置是否启用验证码

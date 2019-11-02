@@ -41,22 +41,19 @@ meta:
     │   │   └── io
     │   │       └── geekidea
     │   │           └── springbootplus
+    │   │               ├── aop
     │   │               ├── common
-    │   │               │   ├── aop
     │   │               │   ├── api
-    │   │               │   ├── constant
     │   │               │   ├── constraints
+    │   │               │   ├── controller
     │   │               │   ├── entity
     │   │               │   ├── enums
     │   │               │   ├── exception
+    │   │               │   ├── param
     │   │               │   ├── service
     │   │               │   │   └── impl
-    │   │               │   └── web
-    │   │               │       ├── controller
-    │   │               │       ├── filter
-    │   │               │       ├── interceptor
-    │   │               │       ├── param
-    │   │               │       └── vo
+    │   │               │   ├── vo
+    │   │               │   └── xss
     │   │               ├── config
     │   │               │   ├── converter
     │   │               │   └── json
@@ -64,11 +61,29 @@ meta:
     │   │               │       └── jackson
     │   │               │           ├── deserializer
     │   │               │           └── serializer
+    │   │               ├── constant
     │   │               ├── core
+    │   │               │   ├── aop
+    │   │               │   ├── config
+    │   │               │   └── properties
+    │   │               ├── enums
+    │   │               ├── example
+    │   │               ├── filter
+    │   │               ├── foobar
+    │   │               │   ├── controller
+    │   │               │   ├── entity
+    │   │               │   ├── mapper
+    │   │               │   ├── param
+    │   │               │   ├── service
+    │   │               │   │   └── impl
+    │   │               │   └── vo
+    │   │               ├── generator
+    │   │               │   └── config
+    │   │               ├── interceptor
     │   │               ├── resource
-    │   │               │   └── web
-    │   │               │       ├── controller
-    │   │               │       └── interceptor
+    │   │               │   ├── controller
+    │   │               │   └── interceptor
+    │   │               ├── scheduled
     │   │               ├── shiro
     │   │               │   ├── cache
     │   │               │   │   └── impl
@@ -83,19 +98,21 @@ meta:
     │   │               │   ├── util
     │   │               │   └── vo
     │   │               ├── system
+    │   │               │   ├── controller
     │   │               │   ├── convert
     │   │               │   ├── entity
+    │   │               │   ├── exception
     │   │               │   ├── mapper
+    │   │               │   ├── param
+    │   │               │   │   └── sysrole
     │   │               │   ├── service
     │   │               │   │   └── impl
-    │   │               │   └── web
-    │   │               │       ├── controller
-    │   │               │       ├── param
-    │   │               │       └── vo
+    │   │               │   └── vo
     │   │               └── util
     │   └── resources
     │       ├── config
     │       ├── mapper
+    │       │   ├── foobar
     │       │   └── system
     │       ├── static
     │       └── templates
@@ -107,6 +124,7 @@ meta:
         │               └── test
         └── resources
             └── templates
+
 ```
 
 ### 项目包和类文档：[http://geekidea.io/spring-boot-plus-apidocs/](http://geekidea.io/spring-boot-plus-apidocs/)

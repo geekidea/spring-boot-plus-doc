@@ -40,34 +40,83 @@ CREATE TABLE `sys_log`  (
 
 2. 代码生成配置
 ```text
-spring-boot-plus/src/test/java/io/geekidea/springbootplus/test/CodeGenerator.java
+spring-boot-plus/src/test/java/io/geekidea/springbootplus/test/SpringBootPlusGenerator.java
 ```
 ![代码生成器位置](https://geekidea.oss-cn-chengdu.aliyuncs.com/spring-boot-plus/img/generator-config-location.png)
 
 
-> 2.1 修改数据库连接配置
+> 修改数据库连接配置,修改模块、表、作者等配置
 ```java
-private static final String USER_NAME = "root";
-private static final String PASSWORD = "rootroot";
-private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
-private static final String DRIVER_URL = "jdbc:mysql://localhost:3306/spring_boot_plus?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
-```
-> 2.2 修改模块、表、作者等配置
-```java
-// ############################ 配置部分 start ############################
-// 模块名称
-private static final String MODULE_NAME = "system";
-// 作者
-private static final String AUTHOR = "geekidea";
-// 生成的表名称
-private static final String TABLE_NAME = "sys_log";
-// 主键数据库列名称
-private static final String PK_ID_COLUMN_NAME = "log_id";
-// 代码生成策略 true：All/false:SIMPLE
-private static final boolean GENERATOR_STRATEGY = true;
-// 分页列表查询是否排序 true：有排序参数/false：无
-private static final boolean PAGE_LIST_ORDER = true;
-// ############################ 配置部分 end ############################
+public class SpringBootPlusGenerator {
+
+    public static void main(String[] args) {
+        CodeGenerator codeGenerator = new CodeGenerator();
+        // 公共配置
+        // 数据库配置
+        codeGenerator
+                .setUserName("root")
+                .setPassword("root")
+                .setDriverName("com.mysql.jdbc.Driver")
+                .setDriverUrl("jdbc:mysql://localhost:3306/spring_boot_plus?useUnicode=true&characterEncoding=UTF-8&useSSL=false");
+
+        // 包信息
+        codeGenerator
+                .setProjectPackagePath("io/geekidea/springbootplus")
+                .setParentPackage("io.geekidea.springbootplus");
+
+        // 组件作者等配置
+        codeGenerator
+                .setModuleName("system")
+                .setAuthor("geekidea")
+                .setPkIdColumnName("id");
+
+        // 生成策略
+        codeGenerator
+                .setGeneratorStrategy(CodeGenerator.GeneratorStrategy.ALL)
+                .setPageListOrder(true)
+                .setParamValidation(true);
+
+        // 生成实体映射相关代码,可用于数据库字段更新
+        // 当数据库字段更新时，可自定义自动生成哪些那文件
+        codeGenerator
+                .setGeneratorEntity(true)
+                .setGeneratorQueryParam(true)
+                .setGeneratorQueryVo(true);
+
+        // 生成业务相关代码
+        codeGenerator
+                .setGeneratorController(true)
+                .setGeneratorService(true)
+                .setGeneratorServiceImpl(true)
+                .setGeneratorMapper(true)
+                .setGeneratorMapperXml(true);
+
+        // 是否生成Shiro RequiresPermissions注解
+        codeGenerator.setRequiresPermissions(false);
+
+        // 是否覆盖已有文件
+        codeGenerator.setFileOverride(true);
+
+        // 初始化公共变量
+        codeGenerator.init();
+
+        // 需要生成的表数组
+        // xxx,yyy,zzz为需要生成代码的表名称
+        String[] tables = {
+                "sys_log"
+        };
+
+        // 循环生成
+        for (String table : tables) {
+            // 设置需要生成的表名称
+            codeGenerator.setTableName(table);
+            // 生成代码
+            codeGenerator.generator();
+        }
+
+    }
+
+}
 ```
 - MODULE_NAME：模块名称，在目前项目上以单独的文件夹形式体现
 - AUTHOR：作者名称，在类的注释上体现
