@@ -1,0 +1,14 @@
+{
+  "name": "spring-boot-plus-doc",
+  "version": "1.0.0",
+  "author": "geekidea",
+  "license": "ISC",
+  "description": "spring-boot-plus site docs",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "devDependencies": {
+    "vuepress": "^1.1.0"
+  }
+}
